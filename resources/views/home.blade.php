@@ -60,6 +60,10 @@
                 </div>
             @endforeach
 
+            <!-- Paginación -->
+            <div class="clearfix"></div>
+            {{$posts->links()}}
+
         </div>
     </div>
 </div>

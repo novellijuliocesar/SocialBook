@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         //Recoge todas las publicaciones ordenadas de manera descendiente por su id
-        $posts = post::orderBy('id', 'desc')->get();
+        $posts = post::orderBy('id', 'desc')->paginate(10);
 
         //Pasa las publicaciones a la vista del index
         return view('home', [
