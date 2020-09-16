@@ -10,12 +10,12 @@ class order extends Model
     protected $table = "orders";
 
     //Relación de muchos a uno
-    public function users(){
-        return $this->belongsTo("App/User", "user_id");
+    public function user(){
+        return $this->belongsTo("App\User", "user_id");
     }
 
     //Relación de muchos a uno
     public function posts(){
-        return $this->belongsTo("App/Post", "post_id");
+        return $this->belongsTo("App\Post", "post_id");
     }
 }

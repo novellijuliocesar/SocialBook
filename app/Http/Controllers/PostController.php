@@ -29,9 +29,9 @@ class PostController extends Controller
 
         //Validación de los datos recibidos
         $validate = $this->validate($request, [
-            'title' => 'string|max:255',
-            'description' => 'string|max:255',
-            'postimage' => 'image'
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'postimage' => 'required|image'
         ]);
 
         //Recoge los datos enviados por el formulario

@@ -11,6 +11,6 @@ class state extends Model
 
     //Relación de uno a muchos
     public function posts(){
-        return $this->hasMany("App/Post");
+        return $this->hasMany("App\Post");
     }
 }

@@ -11,26 +11,26 @@ class post extends Model
 
     //Relación de uno a muchos
     public function comments(){
-        return $this->hasMany("App/Comment");
+        return $this->hasMany("App\Comment");
     }
 
     //Relación de uno a muchos
     public function likes(){
-        return $this->hasMany("App/Like");
+        return $this->hasMany("App\Like");
     }
 
     //Relación de muchos a uno
-    public function users(){
-        return $this->belongsTo("App/User", "user_id");
+    public function user(){
+        return $this->belongsTo("App\User", "user_id");
     }
 
     //Relación de muchos a uno
     public function Categories(){
-        return $this->belongsTo("App/Category", "category_id");
+        return $this->belongsTo("App\Category", "category_id");
     }
 
     //Relación de muchos a uno
     public function states(){
-        return $this->belongsTo("App/State", "state_id");
+        return $this->belongsTo("App\State", "state_id");
     }
 }

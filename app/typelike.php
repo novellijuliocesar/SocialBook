@@ -11,6 +11,6 @@ class typelike extends Model
 
     //Relación de uno a muchos
     public function likes(){
-        return $this->hasMany("App/Like");
+        return $this->hasMany("App\Like");
     }
 }

@@ -10,7 +10,7 @@ class address extends Model
     protected $table = "addresses";
 
     //Relación de muchos a muchos
-    public function users(){
-        return $this->belongsToMany("App/User");
+    public function user(){
+        return $this->belongsToMany("App\User");
     }
 }

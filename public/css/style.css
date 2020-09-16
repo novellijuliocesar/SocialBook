@@ -16,3 +16,52 @@ form .avatar{
 .navbar .container-avatar img{
     height: 100%;
 }
+
+/** Publicación **/
+
+.pub-image{
+    margin-bottom: 70px;
+}
+
+.pub-image .container-avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 900px;
+    overflow: hidden;
+}
+
+.pub-image .container-avatar img{
+    height: 100%;
+}
+
+.pub-image .container-avatar{
+    float: left;
+    margin-right: 15px;
+}
+
+.pub-image .data-user{
+    font-weight: bold;
+    line-height: 35px;
+}
+
+.pub-image .nickname{
+    color: gray;
+}
+
+.image-container{
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.image-container img{
+    width: 100%;
+}
+
+.pub-image .card-body{
+    padding: 0px;
+}
+
+.pub-image .description{
+    padding: 10px;
+}

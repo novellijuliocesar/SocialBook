@@ -4,19 +4,62 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+            <!--Muestra la Publicación -->
+            @foreach ($posts as $post)
+                <div class="card pub-image">
+                    <div class="card-header">
+
+                        <!--Muestra la imagen de perfil del usuario -->
+                        @if($post->user->profileimage)
+                            <div class="container-avatar">
+                                <img class="avatar" src="{{ route('user.avatar', ['fileName' => $post->user->profileimage]) }}" />
+                            </div>
+                        @endif
+
+                        <!--Muestra nombre y apellido del usuario -->
+                        <div class="data-user">
+                            {{$post->user->name . ' ' . $post->user->surname}}
+                            <span class="nickname">
+                                {{'  |   ' . $post->user->nickname}}
+                            </span>
                         </div>
-                    @endif
 
-                    You are logged in!
+                    </div>
+                    
+                    <!--Muestra Título de la publicación -->
+                    <div class="title">
+
+                    </div>
+
+                    <!--Muestra Imagen de la publicación -->
+                    <div class="card-body">
+                        <div class="image-container">
+                            <img src="{{route('post.image', ['fileName' => $post->postimage])}}" alt=""/>
+                        </div>
+                    </div>
+
+                    <!--Muestra Likes de la publicación -->
+                    <div class="likes">
+
+                    </div>
+
+                    <!--Muestra Descripción de la publicación -->
+                    <div class="description">
+                        <span class="nickname">
+                        {{$post->user->nickname}}
+                        </span>
+                        {{' ' . $post->description}}
+                    </div>
+
+                    <!--Muestra Comentarios de la publicación -->
+                    <div class="comment">
+
+                    </div>
+
                 </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </div>

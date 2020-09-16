@@ -24,3 +24,4 @@ Route::get('/user/avatar/{fileName}', 'UserController@getImage')->name('user.ava
 
 Route::get('/createPost', 'PostController@create')->name('post.create');
 Route::post('/post/save', 'PostController@save')->name('post.save');
+Route::get('/post/image/{fileName}', 'PostController@getImage')->name('post.image');

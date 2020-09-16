@@ -29,21 +29,21 @@ class User extends Authenticatable
 
     //Relación de muchos a muchos
     public function addresses(){
-        return $this->belongsToMany("App/Address");
+        return $this->belongsToMany("App\Address");
     }
 
     //Relación de uno a muchos
     public function posts(){
-        return $this->hasMany("App/Post");
+        return $this->hasMany("App\Post");
     }
 
     //Relación de uno a muchos
     public function likes(){
-        return $this->hasMany("App/Like");
+        return $this->hasMany("App\Like");
     }
 
     //Relación de uno a muchos
     public function comments(){
-        return $this->hasMany("App/Comment");
+        return $this->hasMany("App\Comment");
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\post;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     //Muestra las imagenes en el index
     public function index()
     {
-        return view('home');
+        //Recoge todas las publicaciones ordenadas de manera descendiente por su id
+        $posts = post::orderBy('id', 'desc')->get();
+
+        //Pasa las publicaciones a la vista del index
+        return view('home', [
+            'posts' => $posts
+        ]);
     }
 }

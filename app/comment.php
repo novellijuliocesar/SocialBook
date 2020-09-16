@@ -10,17 +10,17 @@ class comment extends Model
     protected $table = "comments";
 
     //Relación de muchos a uno
-    public function users(){
-        return $this->belongsTo("App/User", "user_id");
+    public function user(){
+        return $this->belongsTo("App\User", "user_id");
     }
 
     //Relación de muchos a uno
     public function posts(){
-        return $this->belongsTo("App/Post", "post_id");
+        return $this->belongsTo("App\Post", "post_id");
     }
 
     //Relación de uno a muchos
     public function likes(){
-        return $this->hasMany("App/Like");
+        return $this->hasMany("App\Like");
     }
 }

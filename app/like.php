@@ -10,22 +10,22 @@ class like extends Model
     protected $table = "likes";
 
     //Relación de muchos a uno
-    public function users(){
-        return $this->belongsTo("App/User", "user_id");
+    public function user(){
+        return $this->belongsTo("App\User", "user_id");
     }
 
     //Relación de muchos a uno
     public function posts(){
-        return $this->belongsTo("App/Post", "post_id");
+        return $this->belongsTo("App\Post", "post_id");
     }
 
     //Relación de muchos a uno
     public function comments(){
-        return $this->belongsTo("App/Comment", "comment_id");
+        return $this->belongsTo("App\Comment", "comment_id");
     }
 
     //Relación de muchos a uno
     public function typelikes(){
-        return $this->belongsTo("App/Typelike", "typelike_id");
+        return $this->belongsTo("App\Typelike", "typelike_id");
     }
 }
