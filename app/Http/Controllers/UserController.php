@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
-    //Controla que el acceso sea solo para usuarios identificados
+    //Controla que el acceso a los métodos del controlador solo para usuarios identificados
     public function __construct()
     {
         $this->middleware('auth');
@@ -32,7 +32,8 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
             'nickname' => 'required|string|max:255|unique:users,nickname,'.$id,
-            'email' => 'required|string|email|max:255|unique:users,email,'.$id
+            'email' => 'required|string|email|max:255|unique:users,email,'.$id,
+            'profileimage' => 'image'
         ]);
 
         //Recoge los datos enviados por el formulario
@@ -41,7 +42,6 @@ class UserController extends Controller
         $nickname = $request->input('nickname');
         $email = $request->input('email');
         $profileimage = $request->file('profileimage');
-
 
         //Asigna nuevos valores al objeto del usuario
         $user->name = $name;
@@ -56,24 +56,18 @@ class UserController extends Controller
             $imageName = $user->nickname;
             $fileName = $imageName . '.' . $ext;         
 
-            //Comprueba que el archivo tiene una extensión válida
-            if($ext == 'jpg' || $ext == 'png' || $ext == 'bmp' || $ext == 'gif'){
-                //Guarda la imagen en la carpeta storage/app/users
-                Storage::disk('users')->put($fileName, File::get($profileimage));
+            //Guarda la imagen en la carpeta storage/app/users
+            Storage::disk('users')->put($fileName, File::get($profileimage));
 
-                //Setea el nombre de la imagen de perfil con el que se guarda en el disco
-                $user->profileimage = $fileName;
-            }else{
-                //Realiza una redirección con un mensaje de error en el formato de la imagen
-                return redirect()->route('config')->with(['message' => 'El formato de la imagen no es válido']);
-            }
+            //Setea el nombre de la imagen de perfil con el que se guarda en el disco
+            $user->profileimage = $fileName;            
         }
 
         //Ejecuta la consulta y modifica los datos en la Base de Datos
         $user->update();
 
         //Realiza una redirección con un mensaje de actualización correctamente realizada
-        return redirect()->route('config')->with(['message' => 'Usuario actualizado correctamente']);
+        return redirect()->route('user.config')->with(['message' => 'Usuario actualizado correctamente']);
     }
 
     //Recupera la imagen de perfil de Usuario del disco

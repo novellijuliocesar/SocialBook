@@ -55,13 +55,13 @@
                         @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('home') }}">
                                 Inicio
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('post.create') }}">
                                 Subir
                             </a>
                         </li>
@@ -84,7 +84,7 @@
                                         Favoritos
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('config') }}">
+                                    <a class="dropdown-item" href="{{ route('user.config') }}">
                                         Configuración
                                     </a>
 

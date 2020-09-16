@@ -6,11 +6,7 @@
         <div class="col-md-8">
 
             <!-- Muestra mensaje de actualización del usuario -->
-            @if(session('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
+            @include('includes.message')
 
             <div class="card">
                 <div class="card-header">Configuración</div>
@@ -101,6 +97,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo de Enviar formulario -->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
