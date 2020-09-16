@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
+    //Controla que el acceso sea solo para usuarios identificados
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    //Carga la vista de modificación de datos del usuario
     public function config(){
         return view('user.config');
     }

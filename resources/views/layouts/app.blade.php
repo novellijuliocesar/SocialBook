@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -63,6 +64,13 @@
                             <a class="nav-link" href="">
                                 Subir
                             </a>
+                        </li>
+
+                        <!-- Muestra la imagen de perfil -->
+                        <li>
+                            @if(Auth::user()->profileimage)
+                                @include('includes.avatar')
+                            @endif
                         </li>
 
                         <li class="nav-item dropdown">

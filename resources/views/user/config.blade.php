@@ -86,6 +86,11 @@
 
                             <div class="col-md-6">
 
+                            <!-- Muestra la imagen de perfil -->
+                            @if(Auth::user()->profileimage)
+                                @include('includes.avatar')
+                            @endif
+
                                 <input id="profileimage" type="file" class="form-control{{ $errors->has('profileimage') ? ' is-invalid' : '' }}" name="profileimage">
 
                                 @if ($errors->has('profileimage'))
