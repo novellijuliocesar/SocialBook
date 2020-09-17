@@ -1,3 +1,10 @@
+
+textarea:focus, 
+input:focus, 
+input[type]:focus {
+    outline: 0 none;
+}
+
 /** Imagen de Perfil **/
 
 form .avatar{
@@ -68,6 +75,7 @@ form .avatar{
 .pub-image .description{
     padding: 20px;
     padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .grid-container {
@@ -89,7 +97,7 @@ form .avatar{
     color: rgba(0,0,0,.5);
 }
 
-.pub-image .comments{
+.pub-image .count-comments a{
     padding-left: 20px;
     color: grey;
 }
@@ -103,3 +111,25 @@ form .avatar{
 .post-date a{
     color: gray;
 }
+
+/** Comentarios **/
+
+.pub-image .comments{
+    padding: 10px;
+}
+
+.comments button{
+    background-color: white;
+    color: rgb(57, 136, 214);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.comments textarea{
+    resize: none;
+}
+
+
+
+
+

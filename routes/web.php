@@ -27,3 +27,4 @@ Route::post('/post/save', 'PostController@save')->name('post.save');
 Route::get('/post/image/{fileName}', 'PostController@getImage')->name('post.image');
 
 Route::get('/post/{id}', 'PostController@postdetail')->name('post.postdetail');
+Route::post('/comment/save', 'CommentController@save')->name('comment.save');

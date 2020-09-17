@@ -7,7 +7,7 @@
 
             <!--Muestra la Publicación -->
             @foreach ($posts as $post)
-                <div class="card pub-image">
+                <div class="card pub-image pub-image-detail">
                     <div class="card-header">
 
                         <!--Muestra la imagen de perfil del usuario -->
@@ -48,14 +48,14 @@
                     </div>
 
                     <div class="grid-container">
-                        <!--Muestra Likes de la publicación -->
+                        <!--Muestra Botón de Likes de la publicación -->
                         <div class="grid-item">
                             <a href="" class="btn-likes">
                                 <i class="far fa-heart"></i>
                             </a>
                         </div>
         
-                        <!--Muestra Comentarios de la publicación -->
+                        <!--Muestra Botón de Comentarios de la publicación -->
                         <div class="grid-item">
                             <a href="{{route('post.postdetail', ['id' => $post->id])}}" class="btn-comments">
                                 <i class="far fa-comment"></i>
@@ -63,14 +63,6 @@
                         </div>
                     </div>
 
-                    <!--Muestra cantidad de comentarios -->
-                    <div class="comments">
-                        <a href="{{route('post.postdetail', ['id' => $post->id])}}">
-                            @if(count($post->comments)>=1)
-                                Ver los {{count($post->comments)}} comentarios
-                            @endif
-                        </a>
-                    </div>
                     
                     <!--Muestra Descripción de la publicación -->
                     <div class="description">
@@ -81,6 +73,15 @@
                         </a>                        
                         {{' ' . $post->description}}
                     </div>
+                    
+                    <!--Muestra cantidad de comentarios -->
+                    @if(count($post->comments)>=1)
+                        <div class="comments">
+                            <a href="{{route('post.postdetail', ['id' => $post->id])}}">
+                                Ver los {{count($post->comments)}} comentarios
+                            </a>
+                        </div>
+                    @endif
 
                     <!-- Muestra la fecha de la publicación -->
                     <div class="post-date">
