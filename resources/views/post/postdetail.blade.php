@@ -6,7 +6,6 @@
         <div class="col-md-8">
 
             <!--Muestra la Publicación -->
-            @foreach ($posts as $post)
                 <div class="card pub-image">
                     <div class="card-header">
 
@@ -33,7 +32,7 @@
                     
                     <!--Muestra Título de la publicación -->
                     <div class="title">
-                        <a href="{{route('post.postdetail', ['id' => $post->id])}}">
+                        <a href="">
 
                         </a>
                     </div>
@@ -41,7 +40,7 @@
                     <!--Muestra Imagen de la publicación -->
                     <div class="card-body">
                         <div class="image-container">
-                            <a href="{{route('post.postdetail', ['id' => $post->id])}}">
+                            <a href="">
                                 <img src="{{route('post.image', ['fileName' => $post->postimage])}}" alt=""/>
                             </a>
                         </div>
@@ -57,7 +56,7 @@
         
                         <!--Muestra Comentarios de la publicación -->
                         <div class="grid-item">
-                            <a href="{{route('post.postdetail', ['id' => $post->id])}}" class="btn-comments">
+                            <a href="" class="btn-comments">
                                 <i class="far fa-comment"></i>
                             </a>
                         </div>
@@ -65,7 +64,7 @@
 
                     <!--Muestra cantidad de comentarios -->
                     <div class="comments">
-                        <a href="{{route('post.postdetail', ['id' => $post->id])}}">
+                        <a href="">
                             @if(count($post->comments)>=1)
                                 Ver los {{count($post->comments)}} comentarios
                             @endif
@@ -83,11 +82,6 @@
                     </div>
                     
                 </div>
-                @endforeach
-                
-            <!-- Paginación -->
-            <div class="clearfix"></div>
-            {{$posts->links()}}
 
         </div>
     </div>

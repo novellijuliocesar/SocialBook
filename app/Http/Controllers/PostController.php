@@ -73,4 +73,13 @@ class PostController extends Controller
         return new Response($file, 200);
     }
 
+    //Carga la vista de una publicacion
+    public function postdetail($id){
+        $post = post::find($id);
+
+        return view('post.postdetail', [
+            'post' => $post
+        ]);
+    }
+
 }
