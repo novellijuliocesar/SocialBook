@@ -81,6 +81,13 @@
                         </a>                        
                         {{' ' . $post->description}}
                     </div>
+
+                    <!-- Muestra la fecha de la publicación -->
+                    <div class="post-date">
+                        <a href="{{route('post.postdetail', ['id' => $post->id])}}" title="{{$post->created_at}}">
+                            {{\TimeFormat::Since($post->created_at)}}
+                        </a>                        
+                    </div>
                     
                 </div>
                 @endforeach

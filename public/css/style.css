@@ -93,3 +93,13 @@ form .avatar{
     padding-left: 20px;
     color: grey;
 }
+
+.post-date{
+    padding: 20px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+}
+
+.post-date a{
+    color: gray;
+}
