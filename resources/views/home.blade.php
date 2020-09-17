@@ -76,7 +76,7 @@
                     
                     <!--Muestra cantidad de comentarios -->
                     @if(count($post->comments)>=1)
-                        <div class="comments">
+                        <div class="count-comments">
                             <a href="{{route('post.postdetail', ['id' => $post->id])}}">
                                 Ver los {{count($post->comments)}} comentarios
                             </a>

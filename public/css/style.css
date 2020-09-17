@@ -55,7 +55,8 @@ form .avatar{
 }
 
 .pub-image .nickname{
-    color: gray;
+    color: black;
+    font-weight: 600;
 }
 
 .image-container{
