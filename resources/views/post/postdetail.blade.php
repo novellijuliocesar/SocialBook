@@ -87,6 +87,9 @@
                             <span class="comment">
                                 {{$comment->content}}
                             </span>
+                            @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->post->user_id == Auth::user()->id))
+                                <a href="{{route('comment.delete', ['id' => $comment->id])}}" ><i class="far fa-trash-alt"></i></a>
+                            @endif
                         </div>
                     @endforeach
                 @endif
