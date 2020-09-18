@@ -13,6 +13,7 @@ class CommentController extends Controller
         $this->middleware('auth');
     }
 
+    //Registra un comentario en la Base de Datos
     public function save(Request $request){
 
         //Recoge el usuario identificado
@@ -42,6 +43,7 @@ class CommentController extends Controller
 
     }
 
+    //Elimina un comentario de la Base de Datos
     public function delete($id){
 
         //Recoge el objeto de Usuario

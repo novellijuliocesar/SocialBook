@@ -29,3 +29,6 @@ Route::get('/post/image/{fileName}', 'PostController@getImage')->name('post.imag
 Route::get('/post/{id}', 'PostController@postdetail')->name('post.postdetail');
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
+
+Route::get('/like/{post_id}', 'LikeController@like')->name('like.save');
+Route::get('/dislike/{post_id}', 'LikeController@dislike')->name('like.delete');
