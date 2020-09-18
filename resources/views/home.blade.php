@@ -59,14 +59,14 @@
                                 @endif
                             @endforeach
 
-                            <div class="icons-like">
+                            <div class="icons-like" data-id="{{$post->id}}">
                                 @if($userLike)
                                     <i class="fas fa-heart like"></i>
                                 @else
                                     <i class="far fa-heart dislike"></i>
                                 @endif
                             </div>
-                            
+
                         </div>
         
                         <!--Muestra Botón de Comentarios de la publicación -->

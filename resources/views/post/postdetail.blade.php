@@ -51,7 +51,7 @@
                             @endif
                         @endforeach
 
-                        <div class="icons-like">
+                        <div class="icons-like" data-id="{{$post->id}}">
                                 @if($userLike)
                                     <i class="fas fa-heart like"></i>
                                 @else
