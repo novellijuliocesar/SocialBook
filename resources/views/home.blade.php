@@ -50,9 +50,23 @@
                     <div class="grid-container">
                         <!--Muestra Botón de Likes de la publicación -->
                         <div class="grid-item">
-                            <a href="" class="btn-likes">
-                                <i class="far fa-heart"></i>
-                            </a>
+
+                            <!-- Comprueba si el usuario identificado ha registrado un like sobre la publicación -->
+                            <?php $userLike = false;?>
+                            @foreach($post->likes as $like)
+                                @if($like->user->id == Auth::user()->id)
+                                    <?php $userLike = true;?>
+                                @endif
+                            @endforeach
+
+                            <div class="icons-like">
+                                @if($userLike)
+                                    <i class="fas fa-heart like"></i>
+                                @else
+                                    <i class="far fa-heart dislike"></i>
+                                @endif
+                            </div>
+                            
                         </div>
         
                         <!--Muestra Botón de Comentarios de la publicación -->
@@ -61,6 +75,15 @@
                                 <i class="far fa-comment"></i>
                             </a>
                         </div>
+                    </div>
+
+                    <!-- Muestra la cantidad de likes de la publicación -->
+                    <div class="count-likes">
+                        <a href="">
+                            @if(count($post->likes) >= 1)
+                                {{count($post->likes)}} Me gustas
+                            @endif
+                        </a>
                     </div>
 
                     
