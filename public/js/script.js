@@ -1,3 +1,5 @@
+"use strict";
+
 var url = 'http://proyectofinallaravel.com/';
 window.addEventListener("load", function(){
 
@@ -11,36 +13,36 @@ window.addEventListener("load", function(){
 
         $('.icons-like').off().on('click', function(){
         
-            var likeExist = $(this).children().hasClass('like')
+            var likeExist = $(this).children().hasClass('like')  
     
             if(likeExist){
                 $(this).children().removeClass('fas like').addClass('far dislike')
-                console.log('dislike')
+                console.log('dislike')     
 
                 $.ajax({
-                    url: url + '/dislike/' + $(this).data('id'),
+                    url: url + 'dislike/' + $(this).data('id'),
                     type: 'GET',
                     success: function(response){
-                        console.log(response);
+                        $('.countLikes').text(response.count + ' Me gustas');
+                        console.log(response.count);
                     }
-                });     
+                });    
 
             }else{
                 $(this).children().removeClass('far dislike').addClass('fas like')
                 console.log('like')
 
                 $.ajax({
-                    url: url + '/like/' + $(this).data('id'),
+                    url: url + 'like/' + $(this).data('id'),
                     type: 'GET',
                     success: function(response){
-                        console.log(response);
+                        $('.countLikes').text(response.count + ' Me gustas');
+                        console.log(response.count);
                     }
-                });     
+                });  
             }
     
             likes()
         });
     }
-
-    
 });

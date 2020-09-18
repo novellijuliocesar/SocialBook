@@ -50,7 +50,7 @@
                                 <?php $userLike = true;?>
                             @endif
                         @endforeach
-
+                        
                         <div class="icons-like" data-id="{{$post->id}}">
                                 @if($userLike)
                                     <i class="fas fa-heart like"></i>
@@ -70,13 +70,13 @@
                 </div>
 
                 <!-- Muestra la cantidad de likes de la publicación -->
-                <div class="count-likes">
-                    <a href="">
-                        @if(count($post->likes) >= 1)
-                            {{count($post->likes)}} Me gustas
-                        @endif
-                    </a>
-                </div>
+                @if(count($post->likes) >= 1)
+                    <div class="count-likes">
+                        <a href="">
+                            <span class="countLikes">{{count($post->likes)}} Me gustas</span>    
+                        </a>
+                    </div>
+                @endif
 
                 <!--Muestra Descripción de la publicación -->
                 <div class="description">
@@ -109,9 +109,7 @@
                             <span class="comment">
                                 {{$comment->content}}
                             </span>
-                            @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->post->user_id == Auth::user()->id))
-                                <a href="{{route('comment.delete', ['id' => $comment->id])}}" ><i class="far fa-trash-alt"></i></a>
-                            @endif
+                            
                         </div>
                     @endforeach
                 @endif

@@ -37,14 +37,19 @@ class LikeController extends Controller
             //Guarda un registro de like en la Base de Datos
             $like->save();
 
+            //Recoge la cantidad de likes de la publicación
+            $likeCount = like::WHERE('post_id', $post_id)->count();
+
             //Devuelve un json con los datos del registro
             return response()->json([
-                'like' => $like
+                'like' => $like,
+                'count' => $likeCount,
+                'message' => 'Has realizado un like'
             ]);
         }else{
 
             //Devuelve un json con el mensaje de like existente
-            return response()->json([
+            return response()->json([                
                 'message' => 'Ya existe el registro del like'
             ]);
         }
@@ -68,9 +73,13 @@ class LikeController extends Controller
             //Elimina un registro de like en la Base de Datos
             $like->delete();
 
+            //Recoge la cantidad de likes de la publicación
+            $likeCount = like::WHERE('post_id', $post_id)->count();
+
             //Devuelve un json con los datos del registro
             return response()->json([
                 'like' => $like,
+                'count' => $likeCount,
                 'message' => 'Has realizado un dislike'
             ]);
         }else{
@@ -78,6 +87,30 @@ class LikeController extends Controller
             //Devuelve un json con el mensaje de like inexistente
             return response()->json([
                 'message' => 'No existe el registro del like'
+            ]);
+        }
+        
+    }
+
+    //Recoge la cantidad de likes en una publicación y la devuelve en un json
+    public function countLikes($post_id){
+
+        //Comprueba si existe un registro de like en la Base de Datos
+        $countLikes = Like::WHERE('post_id', $post_id)
+                         ->count();
+
+        //Si existe registros de likes devuelve la cantidad
+        if($countLikes > 0){
+
+            //Devuelve un json con los datos del registro
+            return response()->json([
+                'count' => $countLikes
+            ]);
+        }else{
+
+            //Devuelve un json con el mensaje de falta de registros de likes
+            return response()->json([
+                'message' => 'Ya existe registro de likes'
             ]);
         }
         

@@ -78,13 +78,13 @@
                     </div>
 
                     <!-- Muestra la cantidad de likes de la publicación -->
-                    <div class="count-likes">
-                        <a href="">
-                            @if(count($post->likes) >= 1)
-                                {{count($post->likes)}} Me gustas
-                            @endif
-                        </a>
-                    </div>
+                    @if(count($post->likes) >= 1)
+                        <div class="count-likes">
+                            <a href="">
+                                <span class="countLikes">{{count($post->likes)}} Me gustas</span>
+                            </a>
+                        </div>
+                    @endif
 
                     
                     <!--Muestra Descripción de la publicación -->

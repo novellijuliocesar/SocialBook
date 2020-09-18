@@ -62,8 +62,9 @@ class PostController extends Controller
         //Ejecuta la consulta y modifica los datos en la Base de Datos
         $post->save();
 
-        //Realiza una redirección con un mensaje de actualización correctamente realizada
-        return redirect()->route('post.create')->with(['message' => 'Publicación guardada correctamente']);
+        //Realiza una redirección a la página de la publicación
+        return redirect()->route('post.postdetail', ['id' => $post->id]);
+        
 
     }
 
