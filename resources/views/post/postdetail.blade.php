@@ -75,6 +75,22 @@
                     </div>
                 @endif
 
+                <!-- Lista los comentarios de la publicación -->
+                @if(count($post->comments) >= 1)
+                    @foreach($post->comments as $comment)
+                        <div class="description">
+                            <a href="">
+                                <span class="nickname">
+                                    {{$comment->user->nickname . ' '}}
+                                </span>
+                            </a>
+                            <span class="comment">
+                                {{$comment->content}}
+                            </span>
+                        </div>
+                    @endforeach
+                @endif
+
                 <!-- Muestra la fecha de la publicación -->
                 <div class="post-date">
                     <a href="{{route('post.postdetail', ['id' => $post->id])}}" title="{{$post->created_at}}">
