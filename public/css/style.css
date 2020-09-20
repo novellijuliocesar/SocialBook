@@ -81,7 +81,7 @@ form .avatar{
 
 .grid-container {
     display: grid;
-    grid-template-columns: 50px 50px;
+    grid-template-columns: 50px 50px 50px 50px;
     padding: 10px;
 }
 
@@ -100,6 +100,14 @@ form .avatar{
 
 .icons-like > .fas{
     color: red;
+}
+
+.fa-trash-alt{
+    color: gray;
+}
+
+.fa-edit{
+    color: gray;
 }
 
 .pub-image .count-likes a{
@@ -138,10 +146,6 @@ form .avatar{
 
 .comments textarea{
     resize: none;
-}
-
-.fa-trash-alt{
-    color: gray;
 }
 
 .user-profile .container-avatar{

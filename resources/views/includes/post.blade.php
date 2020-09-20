@@ -67,6 +67,22 @@
                 <i class="far fa-comment"></i>
             </a>
         </div>
+
+        @if(Auth::user()->id == $post->user_id)
+            <!--Muestra opción para editar la publicación -->
+            <div class="grid-item">
+                <a href="">
+                    <i class="far fa-edit edit"></i>
+                </a>
+            </div>
+
+            <!--Muestra opción para eliminar la publicación -->
+            <div class="grid-item">
+                <a href="">
+                    <i class="far fa-trash-alt delete"></i>
+                </a>
+            </div>
+        @endif
     </div>
 
     <!-- Muestra la cantidad de likes de la publicación -->

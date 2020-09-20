@@ -40,9 +40,9 @@
                 </div>
 
                 <div class="grid-container">
+
                     <!--Muestra Likes de la publicación -->
-                    <div class="grid-item">
-                        
+                    <div class="grid-item">                        
                         <!-- Comprueba si el usuario identificado ha registrado un like sobre la publicación -->
                         <?php $userLike = false;?>
                         @foreach($post->likes as $like)
@@ -57,8 +57,7 @@
                                 @else
                                     <i class="far fa-heart dislike"></i>
                                 @endif
-                        </div>
-                        
+                        </div>                        
                     </div>
     
                     <!--Muestra Comentarios de la publicación -->
@@ -67,6 +66,23 @@
                             <i class="far fa-comment"></i>
                         </a>
                     </div>
+
+                    @if(Auth::user()->id == $post->user_id)
+                        <!--Muestra opción para editar la publicación -->
+                        <div class="grid-item">
+                            <a href="">
+                                <i class="far fa-edit edit"></i>
+                            </a>
+                        </div>
+
+                        <!--Muestra opción para eliminar la publicación -->
+                        <div class="grid-item">
+                            <a href="">
+                                <i class="far fa-trash-alt delete"></i>
+                            </a>
+                        </div>
+                    @endif
+
                 </div>
 
                 <!-- Muestra la cantidad de likes de la publicación -->
@@ -76,7 +92,7 @@
                             <span class="countLikes">{{count($post->likes)}} Me gustas</span>    
                         </a>
                     </div>
-                @endif
+                @endif                
 
                 <!--Muestra Descripción de la publicación -->
                 <div class="description">
