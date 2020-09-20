@@ -92,27 +92,19 @@ class LikeController extends Controller
         
     }
 
-    //Recoge la cantidad de likes en una publicación y la devuelve en un json
-    public function countLikes($post_id){
+    //Recoge todos los registros de likes realizados por el usuario
+    public function userLikes(){
 
-        //Comprueba si existe un registro de like en la Base de Datos
-        $countLikes = Like::WHERE('post_id', $post_id)
-                         ->count();
+        //Recoge los datos del usuario identificado
+        $user = \Auth::user();
 
-        //Si existe registros de likes devuelve la cantidad
-        if($countLikes > 0){
+        //Recoge los registros de likes, en orden descendiente y con una paginación de 6 elementos.
+        $likes = like::WHERE('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(6);
 
-            //Devuelve un json con los datos del registro
-            return response()->json([
-                'count' => $countLikes
-            ]);
-        }else{
-
-            //Devuelve un json con el mensaje de falta de registros de likes
-            return response()->json([
-                'message' => 'Ya existe registro de likes'
-            ]);
-        }
-        
+        //Devuelve los registros a la vista
+        return view('likes.userLikes', [
+            'likes' => $likes
+        ]);
     }
+
 }

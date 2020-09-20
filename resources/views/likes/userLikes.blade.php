@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <!--Muestra la Publicación -->
-            @foreach ($posts as $post)
-                @include('includes.post', ['post' => $post])
-            @endforeach
+            <!-- Muestra todas las publicaciones a las que el usuario les ha dado like -->
+            @foreach($likes as $like)
+                @include('includes.post', ['post' => $like->posts])
+            @endforeach            
                 
             <!-- Paginación -->
             <div class="clearfix"></div>
-            {{$posts->links()}}
+            {{$likes->links()}}
 
         </div>
     </div>

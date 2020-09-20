@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\LikeController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,4 +34,4 @@ Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.de
 
 Route::get('/like/{post_id}', 'LikeController@like')->name('like.save');
 Route::get('/dislike/{post_id}', 'LikeController@dislike')->name('like.delete');
-Route::get('/countLikes/{post_id}', 'LikeController@countLikes')->name('like.countLikes');
+Route::get('/userLikes', 'LikeController@userLikes')->name('userLikes');
