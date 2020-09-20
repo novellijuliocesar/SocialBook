@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\post;
+use App\comment;
+use App\like;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -81,6 +83,33 @@ class PostController extends Controller
         return view('post.postdetail', [
             'post' => $post
         ]);
+    }
+
+    //Elimina un registro y todos los componentes de una publicación
+    public function delete($id){
+
+        //Recoge los datos del usuario identificado
+        $user = \Auth::user();
+
+        //Recoge los datos de la publicación a eliminar
+        $post = post::find($id);
+
+        if($user && $post && ($post->user->id == $user->id)){
+
+            //Elimina la imagen de la publicación
+            Storage::disk('posts')->delete($post->postimage);
+
+            //Elimina el registro de la publicación
+            $post->delete();
+
+            $message = array(['message' => 'La publicación ha sido eliminada correctamente']);
+
+        }else{
+            $message = array(['message' => 'La publicación no ha sido eliminada']);
+        }
+
+        //Realiza una redirección a la página principal
+        return redirect()->route('home')->with($message);
     }
 
 }

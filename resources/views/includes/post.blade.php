@@ -78,7 +78,7 @@
 
             <!--Muestra opción para eliminar la publicación -->
             <div class="grid-item">
-                <a href="">
+                <a href="{{route('post.delete', ['id' => $post->id])}}">
                     <i class="far fa-trash-alt delete"></i>
                 </a>
             </div>

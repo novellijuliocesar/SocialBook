@@ -25,10 +25,10 @@ Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::get('/user/avatar/{fileName}', 'UserController@getImage')->name('user.avatar');
 Route::get('/profile/{id}', 'UserController@profile')->name('profile');
 
-
 Route::get('/createPost', 'PostController@create')->name('post.create');
 Route::post('/post/save', 'PostController@save')->name('post.save');
 Route::get('/post/image/{fileName}', 'PostController@getImage')->name('post.image');
+Route::get('/post/delete/{id}', 'PostController@delete')->name('post.delete');
 
 Route::get('/post/{id}', 'PostController@postdetail')->name('post.postdetail');
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');

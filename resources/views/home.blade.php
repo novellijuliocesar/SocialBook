@@ -5,6 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            <!-- Muestra mensaje de error o publicación -->
+            @include('includes.message')
+
             <!--Muestra la Publicación -->
             @foreach ($posts as $post)
                 @include('includes.post', ['post' => $post])
