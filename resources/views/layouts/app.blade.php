@@ -44,11 +44,14 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <!-- Redirecciona a la página de login de usuario -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">
                                     {{ __('Login') }}
                                 </a>
                             </li>
+
+                            <!-- Redirecciona a la página de registro de usuario -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">
                                     {{ __('Register') }}
@@ -56,12 +59,14 @@
                             </li>
                         @else
 
+                        <!-- Redirecciona a la página principal de la web -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
 
+                        <!-- Redirecciona a la página de creación de una publicación -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('post.create') }}">
                                 Subir
@@ -70,9 +75,11 @@
 
                         <!-- Muestra la imagen de perfil -->
                         <li>
-                            @if(Auth::user()->profileimage)
-                                @include('includes.avatar')
-                            @endif
+                            <a href="{{route('profile', ['id' => Auth::user()->id])}}">
+                                @if(Auth::user()->profileimage)
+                                    @include('includes.avatar')
+                                @endif
+                            </a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -82,14 +89,22 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+                                    <!-- Redirecciona a la página de perfil del usuario -->
+                                    <a class="dropdown-item" href="{{route('profile', ['id' => Auth::user()->id])}}">
+                                        Perfil
+                                    </a>
+
+                                    <!-- Redirecciona a la página de favoritos del usuario -->
                                     <a class="dropdown-item" href="{{route('userLikes')}}">
                                         Favoritos
                                     </a>
 
+                                    <!-- Redirecciona a la página de edición de datos del usuario -->
                                     <a class="dropdown-item" href="{{ route('user.config') }}">
                                         Configuración
                                     </a>
 
+                                    <!-- Cierra la sesión de usuario -->
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -144,7 +144,42 @@ form .avatar{
     color: gray;
 }
 
+.user-profile .container-avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 900px;
+    overflow: hidden;
+    float: left;
+}
 
+.user-profile .container-avatar img{
+    height: 100%;
+}
 
+.user-profile{
+    height: 150px;
+    padding-left: 80px;
+    margin-bottom: 40px;
+}
 
+.user-profile .user-info{
+    float: left;
+    padding-left: 100px;
+}
 
+.user-profile .user-info .nickname{
+    font-size: 28px;
+    font-weight: 300;
+}
+.user-profile .user-info .user-name{
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.user-profile .user-info .user-date{
+    color: gray;
+}
+
+.post-count{
+    font-weight: 900;
+}

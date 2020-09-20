@@ -10,18 +10,18 @@
                 <div class="card-header">
 
                     <!--Muestra la imagen de perfil del usuario -->
-                    <a href="">
-                        @if($post->user->profileimage)
+                    @if($post->user->profileimage)                            
+                        <a href="{{route('profile', ['id' => $post->user->id])}}">
                             <div class="container-avatar">
                                 <img class="avatar" src="{{ route('user.avatar', ['fileName' => $post->user->profileimage]) }}" />
                             </div>
-                        @endif
-                    </a>
+                        </a>
+                    @endif
 
                     <!--Muestra nombre y apellido del usuario -->
                     <div class="data-user">
                         {{$post->user->name . ' ' . $post->user->surname}}
-                        <a href="">
+                        <a href="{{route('profile', ['id' => $post->user->id])}}">
                             <span class="nickname">
                                 {{'  |   ' . $post->user->nickname}}
                             </span>
@@ -80,7 +80,7 @@
 
                 <!--Muestra Descripción de la publicación -->
                 <div class="description">
-                    <a href="">
+                    <a href="{{route('profile', ['id' => $post->user->id])}}">
                         <span class="nickname">
                             {{$post->user->nickname}}
                         </span>
@@ -101,7 +101,7 @@
                 @if(count($post->comments) >= 1)
                     @foreach($post->comments as $comment)
                         <div class="description">
-                            <a href="">
+                            <a href="{{route('profile', ['id' => $comment->user->id])}}">
                                 <span class="nickname">
                                     {{$comment->user->nickname . ' '}}
                                 </span>

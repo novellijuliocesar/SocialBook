@@ -23,6 +23,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/config', 'UserController@config')->name('user.config');
 Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::get('/user/avatar/{fileName}', 'UserController@getImage')->name('user.avatar');
+Route::get('/profile/{id}', 'UserController@profile')->name('profile');
+
 
 Route::get('/createPost', 'PostController@create')->name('post.create');
 Route::post('/post/save', 'PostController@save')->name('post.save');
