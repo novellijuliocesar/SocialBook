@@ -29,8 +29,10 @@ Route::get('/createPost', 'PostController@create')->name('post.create');
 Route::post('/post/save', 'PostController@save')->name('post.save');
 Route::get('/post/image/{fileName}', 'PostController@getImage')->name('post.image');
 Route::get('/post/delete/{id}', 'PostController@delete')->name('post.delete');
-
+Route::get('/post/edit/{id}', 'PostController@edit')->name('post.edit');
 Route::get('/post/{id}', 'PostController@postdetail')->name('post.postdetail');
+Route::post('/post/update', 'PostController@update')->name('post.update');
+
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use App\post;
 use App\comment;
 use App\like;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -110,6 +111,79 @@ class PostController extends Controller
 
         //Realiza una redirección a la página principal
         return redirect()->route('home')->with($message);
+    }
+
+    //Modifica los datos de una publicación
+    public function edit($id){
+
+        //Recoge los datos del usuario identificado
+        $user = Auth::user();
+
+        //Recoge los datos de la publicación a modificar
+        $post = post::find($id);
+
+        if($user && $post && ($post->user->id == $user->id)){
+
+            $edit = true;
+
+            //Renderiza la vista de la edición de la publicación
+            return view('post.edit', ['post' => $post, 'edit' => $edit]);
+        }else{
+
+            //Redirige a la página principal
+            return redirect()->route('home');
+
+        }
+    }
+
+    //Guarda la publicación modificada
+    public function update(Request $request){
+
+        //Recoge el usuario identificado
+        $user = \Auth::user();
+
+        //Validación de los datos recibidos
+        $validate = $this->validate($request, [
+            'title' => 'string|max:255',
+            'description' => 'string|max:255',
+            'postimage' => 'image'
+        ]);
+
+        //Recoge los valores de la publicación en edición
+        $post_id = $request->input('post_id');
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $postimage = $request->file('postimage');
+
+        //Recoge el objeto de la publicación en edición
+        $post = post::find($post_id);
+
+        //Setea el objeto con los nuevos datos
+        $post->title = $title;
+        $post->description = $description;
+
+        //Recoge el nombre original de la imagen
+        $originalName = $post->postimage;
+
+        //Subir imagen de la publicación
+        if($postimage){                       
+
+            //Nombra a la nueva imagen con el nombre de la original y la reescribe
+            $fileName = $originalName;     
+
+            //Guarda la imagen en la carpeta storage/app/posts
+            Storage::disk('posts')->put($fileName, File::get($postimage));
+
+            //Setea el nombre de la imagen de la publicación con el que se guarda en el disco
+            $post->postimage = $fileName;            
+        }
+
+        //Actualiza el registro de la publicación
+        $post->update();
+
+        //Redirecciona a la página del detalle de la publicación actualizada
+        return redirect()->route('post.postdetail', ['id' => $post_id])->with(['message', 'Publicación actualizada correctamente']);
+ 
     }
 
 }

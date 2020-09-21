@@ -70,7 +70,7 @@
                     @if(Auth::user()->id == $post->user_id)
                         <!--Muestra opción para editar la publicación -->
                         <div class="grid-item">
-                            <a href="">
+                            <a href="{{route('post.edit', ['id' => $post->id])}}">
                                 <i class="far fa-edit edit"></i>
                             </a>
                         </div>
