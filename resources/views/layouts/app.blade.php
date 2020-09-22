@@ -59,6 +59,13 @@
                             </li>
                         @else
 
+                        <!-- Redirecciona a la página de búsqueda de usuarios -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.showUsers') }}">
+                            <i class="fas fa-search"></i>
+                            </a>
+                        </li>
+
                         <!-- Redirecciona a la página principal de la web -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">
