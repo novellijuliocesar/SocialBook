@@ -77,6 +77,7 @@ class UserController extends Controller
         return new Response($file, 200);
     }
 
+    //Carga la vista del perfil del usuario
     public function profile($id){
 
         //Recoge los datos del usuario que llega por url
@@ -86,5 +87,24 @@ class UserController extends Controller
         return view('user.profile', [
             'user' => $user
         ]);
+    }
+
+    //Recoge y muestra en una pantalla todos o los usuarios buscados en la plataforma
+    public function showUsers($search = null){
+
+        if($search == null){
+            //Recoge todos los usuarios de la plataforma
+            $users = User::orderBy('id', 'desc')->paginate(5);
+        }else{            
+            //Recoge todos los usuarios de la plataforma que coincidan con la busqueda
+            $users = User::WHERE('nickname', 'LIKE', '%' . $search . '%')
+                        ->orWHERE('name', 'LIKE', '%' . $search . '%')
+                        ->orWHERE('surname', 'LIKE', '%' . $search . '%')
+                        ->orderBy('id', 'desc')->paginate(5);
+        }
+
+        //Redirecciona a la página con los resultados
+        return view('user.showUsers', ['users' => $users]);
+        
     }
 }

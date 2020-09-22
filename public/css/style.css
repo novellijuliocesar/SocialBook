@@ -50,8 +50,9 @@ form .avatar{
     font-weight: bold;
     line-height: 35px;
 }
-.pub-image a{
+.user-profile a{
     text-decoration: none;
+    color: black;
 }
 
 .pub-image .nickname{

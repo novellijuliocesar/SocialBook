@@ -1,8 +1,7 @@
 <div class="card pub-image pub-image-detail">
     <div class="card-header">
 
-        <!--Muestra la imagen de perfil del usuario -->
-        
+        <!--Muestra la imagen de perfil del usuario -->        
         @if($post->user->profileimage)
             <a href="{{route('profile', ['id' => $post->user->id])}}">
                 <div class="container-avatar">

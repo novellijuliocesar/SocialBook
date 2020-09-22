@@ -45,4 +45,9 @@ window.addEventListener("load", function(){
             likes()
         });
     }
+
+    //Buscador de usuarios
+    $('#search-users').on('submit', function(){
+        $(this).attr('action', url + 'user/showUsers/' + $('#search').val());
+    });
 });
