@@ -173,6 +173,7 @@ form .avatar{
 .user-profile .user-info{
     float: left;
     padding-left: 100px;
+    padding-bottom: 30px;
 }
 
 .user-profile .user-info .nickname{
@@ -188,6 +189,6 @@ form .avatar{
     color: gray;
 }
 
-.post-count{
+.post-count, .following-count, .followers-count{
     font-weight: 900;
 }

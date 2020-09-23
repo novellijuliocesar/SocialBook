@@ -103,8 +103,21 @@ class UserController extends Controller
                         ->orderBy('id', 'desc')->paginate(5);
         }
 
-        //Redirecciona a la página con los resultados
+        //Redirecciona a la página de la vista con los resultados
         return view('user.showUsers', ['users' => $users]);
         
+    }
+
+    //Recoge los seguidores de un usuario
+    public function showFollowers($id){
+
+        //Recoge los datos del usuario que llega por url
+        $user = user::find($id);
+
+        //Recoge los seguidores del usuario
+        $followers = $user->followers;
+
+        //Redirecciona a la página de la vista con los resultados
+        return view('user.showFollowers', ['followers' => $followers]);
     }
 }

@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}" title="Inicio">
                 Proyecto Final con Laravel
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -61,28 +61,28 @@
 
                         <!-- Redirecciona a la página de búsqueda de usuarios -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.showUsers') }}">
+                            <a class="nav-link" href="{{ route('user.showUsers') }}" title="Buscar">
                             <i class="fas fa-search"></i>
                             </a>
                         </li>
 
                         <!-- Redirecciona a la página principal de la web -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">
+                            <a class="nav-link" href="{{ route('home') }}" title="Inicio">
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
 
                         <!-- Redirecciona a la página de creación de una publicación -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('post.create') }}">
-                                Subir
+                            <a class="nav-link" href="{{ route('post.create') }}" title="Subir">
+                                <i class="fas fa-arrow-up"></i>
                             </a>
                         </li>
 
                         <!-- Muestra la imagen de perfil -->
                         <li>
-                            <a href="{{route('profile', ['id' => Auth::user()->id])}}">
+                            <a href="{{route('profile', ['id' => Auth::user()->id])}}" title="Perfil">
                                 @if(Auth::user()->profileimage)
                                     @include('includes.avatar')
                                 @endif

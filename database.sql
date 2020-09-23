@@ -20,6 +20,18 @@ remember_token      VARCHAR(255),
 CONSTRAINT pk_users PRIMARY KEY(id)
 )ENGINE=InnoDb;
 
+-- Creación de la tabla de seguidores
+CREATE TABLE followers(
+user_id            	INT(255),
+follower_id         INT(255),
+CONSTRAINT pk_followers PRIMARY KEY(user_id, follower_id),
+CONSTRAINT fk_users_followers FOREIGN KEY(user_id) REFERENCES users(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE,
+CONSTRAINT fk_followers_users FOREIGN KEY(follower_id) REFERENCES users(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+)ENGINE=InnoDb;
 
 -- Creación de la tabla de Direcciones
 CREATE TABLE addresses(

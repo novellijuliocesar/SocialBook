@@ -46,4 +46,17 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany("App\Comment");
     }
+
+    //Relación de muchos a muchos
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+    //Relación de muchos a muchos
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+
 }

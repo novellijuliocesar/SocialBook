@@ -41,14 +41,24 @@
                                     {{($user->nickname)}}
                                 </a>
                             </div>
-                            <div class="user-post">
-                                <span class="post-count">{{count($user->posts)}}</span> publicaciones
-                            </div>
                             <div class="user-name">
                                 {{$user->name . ' ' . $user->surname}}
                             </div>
+                            <!-- Muestra desde cuando esta registrado el usuario -->
                             <div class="user-date">
                                 {{'Es usuario ' . \TimeFormat::Since($user->created_at)}}                      
+                            </div>
+                            <!-- Muestra cantidad de publicaciones hechas por el usuario -->
+                            <div class="user-post">
+                                <span class="post-count">{{count($user->posts)}}</span> publicaciones
+                            </div>
+                            <!-- Muestra cantidad de seguidores -->
+                            <div class="user-followers">
+                                <span class="followers-count">{{count($user->following)}}</span> seguidores
+                            </div>
+                            <!-- Muestra cantidad de seguidos por el usuario -->
+                            <div class="user-following">
+                                <span class="following-count">{{count($user->followers)}}</span> seguidos
                             </div>
                         </div>
                     </div>
