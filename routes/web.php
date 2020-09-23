@@ -26,6 +26,7 @@ Route::get('/user/avatar/{fileName}', 'UserController@getImage')->name('user.ava
 Route::get('/profile/{id}', 'UserController@profile')->name('profile');
 Route::get('/user/showUsers/{search?}', 'UserController@showUsers')->name('user.showUsers');
 Route::get('/user/showFollowers/{id}', 'UserController@showFollowers')->name('user.showFollowers');
+Route::get('/user/showFollowing/{id}', 'UserController@showFollowing')->name('user.showFollowing');
 
 Route::get('/createPost', 'PostController@create')->name('post.create');
 Route::post('/post/save', 'PostController@save')->name('post.save');

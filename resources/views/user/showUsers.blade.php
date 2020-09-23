@@ -54,12 +54,16 @@
                             </div>
                             <!-- Muestra cantidad de seguidores -->
                             <div class="user-followers">
-                                <span class="followers-count">{{count($user->following)}}</span> seguidores
+                                <a href="{{route('user.showFollowers', ['id' => $user->id])}}">
+                                    <span class="followers-count">{{count($user->followers)}}</span> seguidores
+                                </a>
                             </div>
                             <!-- Muestra cantidad de seguidos por el usuario -->
                             <div class="user-following">
-                                <span class="following-count">{{count($user->followers)}}</span> seguidos
-                            </div>
+                            <a href="{{route('user.showFollowing', ['id' => $user->id])}}">
+                                <span class="following-count">{{count($user->following)}}</span> seguidos
+                            </a>
+                        </div>
                         </div>
                     </div>
                     <hr/>

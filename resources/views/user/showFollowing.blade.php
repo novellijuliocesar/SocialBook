@@ -6,7 +6,7 @@
         <div class="col-md-8">
 
             <!--Muestra Usuarios -->
-            @foreach ($followers as $user)
+            @foreach ($following as $user)
             <div class="card-body">
                 <div class="user-profile">
 

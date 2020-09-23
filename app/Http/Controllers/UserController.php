@@ -120,4 +120,17 @@ class UserController extends Controller
         //Redirecciona a la página de la vista con los resultados
         return view('user.showFollowers', ['followers' => $followers]);
     }
+
+    //Recoge las cuentas seguidas de un usuario
+    public function showFollowing($id){
+
+        //Recoge los datos del usuario que llega por url
+        $user = user::find($id);
+
+        //Recoge los seguidores del usuario
+        $following = $user->following;
+
+        //Redirecciona a la página de la vista con los resultados
+        return view('user.showFollowing', ['following' => $following]);
+    }
 }
