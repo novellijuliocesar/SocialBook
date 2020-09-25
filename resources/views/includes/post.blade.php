@@ -10,7 +10,7 @@
             </a>
         @endif
 
-        <!--Muestra nombre y apellido del usuario -->
+        <!--Muestra nickname del usuario -->
         <div class="data-user">
             <a href="{{route('profile', ['id' => $post->user->id])}}">
                 <span class="nickname">

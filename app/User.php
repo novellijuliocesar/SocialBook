@@ -50,13 +50,13 @@ class User extends Authenticatable
     //Relación de muchos a muchos
     public function followers()
     {
-        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id')->withTimestamps();
     }
 
     //Relación de muchos a muchos
     public function following()
     {
-        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
     }
 
 }

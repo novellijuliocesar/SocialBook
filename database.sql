@@ -24,6 +24,8 @@ CONSTRAINT pk_users PRIMARY KEY(id)
 CREATE TABLE followers(
 user_id            	INT(255),
 follower_id         INT(255),
+created_at          DATETIME,
+updated_at          DATETIME,
 CONSTRAINT pk_followers PRIMARY KEY(user_id, follower_id),
 CONSTRAINT fk_users_followers FOREIGN KEY(user_id) REFERENCES users(id)
 ON UPDATE CASCADE

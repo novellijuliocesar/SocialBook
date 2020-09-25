@@ -192,3 +192,11 @@ form .avatar{
 .post-count, .following-count, .followers-count{
     font-weight: 900;
 }
+
+.unfollow{    
+    color: grey;
+}
+
+.follow{    
+    color: red;
+}

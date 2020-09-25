@@ -20,10 +20,9 @@
 
                     <!--Muestra nombre y apellido del usuario -->
                     <div class="data-user">
-                        {{$post->user->name . ' ' . $post->user->surname}}
                         <a href="{{route('profile', ['id' => $post->user->id])}}">
                             <span class="nickname">
-                                {{'  |   ' . $post->user->nickname}}
+                                {{$post->user->nickname}}
                             </span>
                         </a>
                     </div>

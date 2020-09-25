@@ -117,8 +117,14 @@ class UserController extends Controller
         //Recoge los seguidores del usuario
         $followers = $user->followers;
 
-        //Redirecciona a la página de la vista con los resultados
-        return view('user.showFollowers', ['followers' => $followers]);
+        if(count($followers) >=1){
+
+            //Redirecciona a la página de la vista con los resultados
+            return view('user.showFollowers', ['followers' => $followers]);
+        }else{
+            //Realiza una redirección a la página principal
+            return redirect()->route('home');
+        }
     }
 
     //Recoge las cuentas seguidas de un usuario
@@ -130,7 +136,14 @@ class UserController extends Controller
         //Recoge los seguidores del usuario
         $following = $user->following;
 
-        //Redirecciona a la página de la vista con los resultados
-        return view('user.showFollowing', ['following' => $following]);
+        if(count($following) >=1){
+
+            //Redirecciona a la página de la vista con los resultados
+            return view('user.showFollowing', ['following' => $following]);
+        }else{
+            //Realiza una redirección a la página principal
+            return redirect()->route('home');
+        }
     }
+    
 }
