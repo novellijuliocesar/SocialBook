@@ -86,7 +86,7 @@
     <!-- Muestra la cantidad de likes de la publicación -->
     @if(count($post->likes) >= 1)
     <div class="count-likes">
-        <a href="">
+        <a href="{{route('whoLikes', ['id' => $post->id])}}">
             <span class="countLikes">{{count($post->likes)}} Me gustas</span>
         </a>
     </div>

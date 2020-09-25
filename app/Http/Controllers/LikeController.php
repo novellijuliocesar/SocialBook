@@ -107,4 +107,16 @@ class LikeController extends Controller
         ]);
     }
 
+    //Recoge todos los usuarios que han dado like a una publicación
+    public function whoLikes($post_id){
+
+        //Recoge los registros de likes de una publicación, en orden descendiente y con una paginación de 6 elementos.
+        $whoLikes = like::WHERE('post_id', $post_id)->orderBy('created_at', 'desc')->paginate(6);
+
+        //Devuelve los registros a la vista
+        return view('likes.whoLikes', [
+            'whoLikes' => $whoLikes
+        ]);
+    }
+
 }
