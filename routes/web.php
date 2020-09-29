@@ -53,3 +53,6 @@ Route::get('/like/{post_id}', 'LikeController@like')->name('like.save');
 Route::get('/dislike/{post_id}', 'LikeController@dislike')->name('like.delete');
 Route::get('/userLikes', 'LikeController@userLikes')->name('userLikes');
 Route::get('/whoLikes/{post_id}', 'LikeController@whoLikes')->name('whoLikes');
+
+//Rutas de Categorías
+Route::get('/category', 'CategoryController@showList')->name('category.list');

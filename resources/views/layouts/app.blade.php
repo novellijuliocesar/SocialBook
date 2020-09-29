@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                         @else
-
+                        
                         <!-- Redirecciona a la página de búsqueda de usuarios -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.showUsers') }}" title="Buscar">
@@ -122,7 +122,26 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                        </li>
+
+                        <!-- Muestra las opciones de herramientas de los usuarios administradores -->
+                        @if(Auth::user()->role == 'admin')
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Herramientas de Administrador <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <!-- Redirecciona a la página de creación de categorías -->
+                                    <a class="dropdown-item" href="{{route('profile', ['id' => Auth::user()->id])}}">
+                                        Categorías
+                                    </a>
+                                    
+                                </div>
+                        </li>
+                        @endif
+                        
                         @endguest
                     </ul>
                 </div>

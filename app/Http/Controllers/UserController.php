@@ -67,8 +67,8 @@ class UserController extends Controller
         //Ejecuta la consulta y modifica los datos en la Base de Datos
         $user->update();
 
-        //Realiza una redirección con un mensaje de actualización correctamente realizada
-        return redirect()->route('user.config')->with(['message' => 'Usuario actualizado correctamente']);
+        //Realiza una redirección a la página de perfil del usuario
+        return view('user.profile', ['user' => $user]);
     }
 
     //Recupera la imagen de perfil de Usuario del disco
