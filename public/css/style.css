@@ -225,3 +225,14 @@ form .avatar{
 .follow{    
     color: red;
 }
+
+/** Ctegorias **/
+
+.category-container {
+    padding: 5px;
+}
+
+.category-item {
+    font-size: 30px;
+    text-align: center;
+}

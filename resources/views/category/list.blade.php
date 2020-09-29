@@ -6,37 +6,22 @@
         <div class="col-md-8">
 
         <!-- Formulario para crear una nueva categoría -->
-        <form action="{{route('user.showUsers')}}" method="GET" id="search-users">   
-            <div class="row searchForm"> 
-                <div class="form-group col">
-                    <input type="text" id="search" placeholder="Buscar..." class="form-control"/>
-                </div>    
-                <div class="form-group col btn-search">
-                    <input type="submit" value="Buscar" class="btn btn-success">
-                </div> 
-            </div>    
-        </form>
+        <div>
+
+        </div>
         <hr/>
 
             <!--Muestra Usuarios -->
             @foreach ($categories as $category)
                 <div class="card-body">
                     
-                <div class="grid-container">
-                    
-                    <div class="grid-item">  
+                <div class="category-container">
+                                        
+                    <div class="category-item">  
                         {{$category->name}} 
-                    </div>  
-
-                    <!--Muestra opción para editar la categoria -->
-                    <div class="grid-item">
                         <a href="{{route('category.edit', ['id' => $category->id])}}">
                             <i class="far fa-edit edit"></i>
                         </a>
-                    </div>
-
-                    <!--Muestra opción para eliminar la categoria -->
-                    <div class="grid-item">
                         <a href="{{route('category.delete', ['id' => $category->id])}}">
                             <i class="far fa-trash-alt delete"></i>
                         </a>
