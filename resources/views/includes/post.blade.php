@@ -19,14 +19,16 @@
             </a>
         </div>
 
+        <!--Muestra Título de la publicación -->
+        <div class="title">
+            <hr/>
+            <a href="{{route('post.postdetail', ['id' => $post->id])}}">
+                {{$post->title}}
+            </a>
+        </div>
+
     </div>
 
-    <!--Muestra Título de la publicación -->
-    <div class="title">
-        <a href="{{route('post.postdetail', ['id' => $post->id])}}">
-
-        </a>
-    </div>
 
     <!--Muestra Imagen de la publicación -->
     <div class="card-body">
