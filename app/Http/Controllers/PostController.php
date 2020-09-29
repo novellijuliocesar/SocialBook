@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\post;
@@ -21,7 +22,12 @@ class PostController extends Controller
 
     //Carga la vista de creación de publicación
     public function create(){
-        return view('post.create');
+
+        //Recoge todos sus registros de categorías
+        $categories = Category::all();
+
+        //Redirige a la página de creación de publicación y le pasa un array con las categorías 
+        return view('post.create', compact('categories'));
     }
 
     //Realiza un registro de una publicación en la Base de Datos
@@ -33,12 +39,14 @@ class PostController extends Controller
         //Validación de los datos recibidos
         $validate = $this->validate($request, [
             'title' => 'required|string|max:255',
+            'category' => 'required',
             'description' => 'required|string|max:255',
             'postimage' => 'required|image'
         ]);
 
         //Recoge los datos enviados por el formulario
         $title = $request->input('title');
+        $category = $request->input('category');
         $description = $request->input('description');
         $postimage = $request->file('postimage');
 
@@ -46,6 +54,7 @@ class PostController extends Controller
         $post = new post;
         $post->user_id = $user->id;
         $post->title = $title;
+        $post->category_id = $category;
         $post->description = $description;
 
         //Subir imagen de la publicación
@@ -119,6 +128,9 @@ class PostController extends Controller
         //Recoge los datos del usuario identificado
         $user = Auth::user();
 
+        //Recoge todos sus registros de categorías
+        $categories = Category::all();
+
         //Recoge los datos de la publicación a modificar
         $post = post::find($id);
 
@@ -127,7 +139,7 @@ class PostController extends Controller
             $edit = true;
 
             //Renderiza la vista de la edición de la publicación
-            return view('post.edit', ['post' => $post, 'edit' => $edit]);
+            return view('post.edit', ['post' => $post, 'edit' => $edit], compact('categories'));
         }else{
 
             //Redirige a la página principal
@@ -145,6 +157,7 @@ class PostController extends Controller
         //Validación de los datos recibidos
         $validate = $this->validate($request, [
             'title' => 'string|max:255',
+            'category' => 'required',
             'description' => 'string|max:255',
             'postimage' => 'image'
         ]);
@@ -152,6 +165,7 @@ class PostController extends Controller
         //Recoge los valores de la publicación en edición
         $post_id = $request->input('post_id');
         $title = $request->input('title');
+        $category = $request->input('category');
         $description = $request->input('description');
         $postimage = $request->file('postimage');
 
@@ -160,6 +174,7 @@ class PostController extends Controller
 
         //Setea el objeto con los nuevos datos
         $post->title = $title;
+        $post->category_id = $category;
         $post->description = $description;
 
         //Recoge el nombre original de la imagen

@@ -39,6 +39,27 @@
                                 </div>
                             </div>
 
+                            <!-- Campo de Categoría -->
+                            <div class="form-group row">
+                                <label for="category" class="col-md-4 col-form-label text-md-right">Categoría</label>
+
+                                <div class="col-md-6">
+                                    <select name="category" id="category" class="form-control">
+
+                                    <option value="{{$post->category_id}}">{{$post->categories->name}}</option>
+                                    <option value="">-- Ninguna --</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category['id']}}">{{$category['name']}}</option>
+                                    @endforeach
+                                    </select>
+                                    @if ($errors->has('category'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('category') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <!-- Campo de Imagen -->
                             <div class="form-group row">
                                 <label for="postimage" class="col-md-4 col-form-label text-md-right">Imagen</label>
