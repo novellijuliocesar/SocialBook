@@ -134,7 +134,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     <!-- Redirecciona a la página de creación de categorías -->
-                                    <a class="dropdown-item" href="{{route('profile', ['id' => Auth::user()->id])}}">
+                                    <a class="dropdown-item" href="{{route('category.list')}}">
                                         Categorías
                                     </a>
                                     

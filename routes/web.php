@@ -56,6 +56,6 @@ Route::get('/whoLikes/{post_id}', 'LikeController@whoLikes')->name('whoLikes');
 
 //Rutas de Categorías
 Route::get('/category', 'CategoryController@showList')->name('category.list');
-Route::get('/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
+Route::post('/category/create', 'CategoryController@create')->name('category.create');
 Route::get('/category/delete/{id}', 'CategoryController@delete')->name('category.delete');
 
