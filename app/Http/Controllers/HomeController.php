@@ -23,7 +23,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     //Muestra las imagenes en el index
+    //Muestra las imagenes en el index
     public function index()
     {
         //Recoge todas las publicaciones ordenadas de manera descendiente por su id

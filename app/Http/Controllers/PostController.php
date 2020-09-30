@@ -10,6 +10,7 @@ use App\like;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -17,6 +18,25 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    //Muestra las publicaciones seguidas por el usuario identificado
+    public function index()
+    {
+        //Recoge los datos del usuario identificado
+        $user = Auth::user();
+
+        //Recoge las cuentas seguidas por el usuario
+        $users = $user->followers;
+
+        //Recoge todas las publicaciones ordenadas de manera descendiente por su fecha de creación
+        $posts = post::orderBy('created_at', 'desc')->get();
+
+        //Pasa los resultados a la vista del index
+        return view('mymainpage', [
+            'posts' => $posts,
+            'users' => $users
+        ]);
     }
 
     //Carga la vista de creación de publicación

@@ -21,6 +21,7 @@ Auth::routes();
 
 //Ruta página principal
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/index', 'PostController@index')->name('mymainpage');
 
 //Rutas de Usuarios
 Route::get('/config', 'UserController@config')->name('user.config');

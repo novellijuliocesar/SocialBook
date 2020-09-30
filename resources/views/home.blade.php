@@ -10,7 +10,7 @@
 
             <!--Muestra la Publicación -->
             @foreach ($posts as $post)
-                @include('includes.post', ['post' => $post])
+                    @include('includes.post', ['post' => $post])
             @endforeach
                 
             <!-- Paginación -->
