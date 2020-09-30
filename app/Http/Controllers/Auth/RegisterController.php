@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 class RegisterController extends Controller
 {
@@ -56,6 +59,7 @@ class RegisterController extends Controller
             'nickname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'profileimage' => 'required|image',
         ]);
     }
 
@@ -69,6 +73,17 @@ class RegisterController extends Controller
      //Realiza la inserción de un registro de usuario
     protected function create(array $data)
     {
+        //Recoge el nombre del archivo de la imagen
+        $profileimage = $data['profileimage'];
+
+        //Extrae la extensión del archivo y concatena con el nickname del usuario para darle un nombre único a la imagen
+        $ext = $profileimage->getClientOriginalExtension();
+        $imageName = $data['nickname'];
+        $fileName = $imageName . '.' . $ext;       
+
+        //Guarda la imagen en la carpeta storage/app/users
+        Storage::disk('users')->put($fileName, File::get($profileimage));
+
         return User::create([
             'role' => 'user',
             'name' => $data['name'],
@@ -76,6 +91,7 @@ class RegisterController extends Controller
             'nickname' => $data['nickname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'profileimage' => $fileName,
         ]);
     }
 }
