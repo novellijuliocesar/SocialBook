@@ -66,9 +66,16 @@
                             </a>
                         </li>
 
+                        <!-- Redirecciona a la página general -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}" title="Global">
+                            <i class="fas fa-globe"></i>
+                            </a>
+                        </li>
+
                         <!-- Redirecciona a la página principal de la web -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}" title="Inicio">
+                            <a class="nav-link" href="{{ route('mymainpage') }}" title="Inicio">
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>

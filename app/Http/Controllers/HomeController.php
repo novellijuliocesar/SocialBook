@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\post;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,8 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //Muestra las imagenes en el index
+    
+     //Muestra las imagenes en el index
     public function index()
     {
         //Recoge todas las publicaciones ordenadas de manera descendiente por su id

@@ -123,7 +123,7 @@ class UserController extends Controller
             return view('user.showFollowers', ['followers' => $followers]);
         }else{
             //Realiza una redirección a la página principal
-            return redirect()->route('home');
+            return redirect()->route('mymainpage');
         }
     }
 
@@ -142,7 +142,7 @@ class UserController extends Controller
             return view('user.showFollowing', ['following' => $following]);
         }else{
             //Realiza una redirección a la página principal
-            return redirect()->route('home');
+            return redirect()->route('mymainpage');
         }
     }
     

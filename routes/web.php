@@ -20,8 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 //Ruta página principal
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/index', 'PostController@index')->name('mymainpage');
+Route::get('/index', 'HomeController@index')->name('home');
+Route::get('/', 'PostController@index')->name('mymainpage');
 
 //Rutas de Usuarios
 Route::get('/config', 'UserController@config')->name('user.config');

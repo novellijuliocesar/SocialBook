@@ -10,7 +10,6 @@ use App\like;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -19,7 +18,7 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     //Muestra las publicaciones seguidas por el usuario identificado
     public function index()
     {
@@ -38,7 +37,7 @@ class PostController extends Controller
             'users' => $users
         ]);
     }
-
+    
     //Carga la vista de creación de publicación
     public function create(){
         return view('post.create');
@@ -130,7 +129,7 @@ class PostController extends Controller
         }
 
         //Realiza una redirección a la página principal
-        return redirect()->route('home')->with($message);
+        return redirect()->route('mymainpage')->with($message);
     }
 
     //Modifica los datos de una publicación
@@ -151,7 +150,7 @@ class PostController extends Controller
         }else{
 
             //Redirige a la página principal
-            return redirect()->route('home');
+            return redirect()->route('mymainpage');
 
         }
     }
