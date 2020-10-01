@@ -5,18 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-        <!-- Buscador de usuarios -->
-        <form action="{{route('user.showUsers')}}" method="GET" id="search-users">   
-            <div class="row searchForm"> 
-                <div class="form-group col">
-                    <input type="text" id="search" placeholder="Buscar..." class="form-control"/>
-                </div>    
-                <div class="form-group col btn-search">
-                    <input type="submit" value="Buscar" class="btn btn-success">
-                </div> 
-            </div>    
-        </form>
-        <hr/>
+            <div class="card-header">
+                <i class="far fa-smile"></i> Descubre nuevas cuentas
+            </div>
+
+            <!-- Buscador de usuarios -->
+            <div class="card-body">
+                <form action="{{route('user.showUsers')}}" method="GET" id="search-users">   
+                    <div class="row searchForm"> 
+                        <div class="form-group col">
+                            <input type="text" id="search" placeholder="Buscar..." class="form-control"/>
+                        </div>    
+                        <div class="form-group col btn-search">
+                            <input type="submit" value="Buscar" class="btn btn-success">
+                        </div> 
+                    </div>    
+                </form>
+            </div>
+            <hr/>
 
             <!--Muestra Usuarios -->
             @foreach ($users as $user)

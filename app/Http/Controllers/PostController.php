@@ -38,6 +38,7 @@ class PostController extends Controller
         ]);
     }
     
+    
     //Carga la vista de creación de publicación
     public function create(){
         return view('post.create');
@@ -130,15 +131,10 @@ class PostController extends Controller
 
             //Elimina el registro de la publicación
             $post->delete();
-
-            $message = array(['message' => 'La publicación ha sido eliminada correctamente']);
-
-        }else{
-            $message = array(['message' => 'La publicación no ha sido eliminada']);
         }
 
-        //Realiza una redirección a la página principal
-        return redirect()->route('mymainpage')->with($message);
+        //Realiza una redirección a la página del perfil del usuario
+        return redirect()->route('profile', ['id' => $user->id]);
     }
 
     //Modifica los datos de una publicación

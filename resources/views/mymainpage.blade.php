@@ -6,7 +6,7 @@
         <div class="col-md-8">
 
             <!-- Muestra un mensaje y accesos a búsquedas en caso de no tener aún contenido que visualizar -->
-            @if(count(Auth::User()->following) == 0)
+            @if(count(Auth::User()->followers) == 0)
                 <div class="card-header">
                     <i class="fas fa-exclamation-circle"></i> Aún no sigues ninguna cuenta
                 </div>    
@@ -24,7 +24,15 @@
                         <i class="fas fa-globe"></i> Descubre nuevas publicaciones
                         </a>
                     </div>
-                </div>    
+                    
+                    <!-- Redirecciona a la página de creación de una publicación -->
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ route('post.create') }}" title="Subir">
+                            <i class="fas fa-arrow-up"></i> Crea una publicación
+                        </a>
+                    </div>
+                </div>   
+            
             @endif
 
             <!--Muestra la Publicaciones de los usuarios seguidos por el usuario identificado-->            
