@@ -5,6 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            <div class="card-header">
+                <i class="far fa-smile"></i> Mis Publicaciones favoritas
+            </div>
+            <br/>
+
             <!-- Muestra todas las publicaciones a las que el usuario les ha dado like -->
             @foreach($likes as $like)
                 @include('includes.post', ['post' => $like->posts])

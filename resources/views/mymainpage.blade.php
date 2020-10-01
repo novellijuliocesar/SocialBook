@@ -5,6 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            <div class="card-header">
+                <i class="far fa-smile"></i> Mis cuentas favoritas
+            </div>
+            <br/>
+
             <!-- Muestra un mensaje y accesos a búsquedas en caso de no tener aún contenido que visualizar -->
             @if(count(Auth::User()->followers) == 0)
                 <div class="card-header">
