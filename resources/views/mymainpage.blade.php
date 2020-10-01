@@ -5,8 +5,30 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            <!-- Muestra un mensaje y accesos a búsquedas en caso de no tener aún contenido que visualizar -->
+            @if(count(Auth::User()->following) == 0)
+                <div class="card-header">
+                    <i class="fas fa-exclamation-circle"></i> Aún no sigues ninguna cuenta
+                </div>    
+                <div class="card-body">
+                    <!-- Redirecciona a la página de búsqueda de usuarios -->
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ route('user.showUsers') }}" title="Buscar">
+                        <i class="fas fa-search"></i> Descubre nuevas cuentas
+                        </a>
+                    </div>
+
+                    <!-- Redirecciona a la página general -->
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}" title="Global">
+                        <i class="fas fa-globe"></i> Descubre nuevas publicaciones
+                        </a>
+                    </div>
+                </div>    
+            @endif
+
             <!--Muestra la Publicaciones de los usuarios seguidos por el usuario identificado-->            
-            @foreach ($posts as $post)
+            @foreach ($posts as $post)                
 
                 @foreach($users as $user)
                     @if($post->user_id == $user->id)

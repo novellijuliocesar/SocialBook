@@ -52,12 +52,18 @@ class PostController extends Controller
         //Validación de los datos recibidos
         $validate = $this->validate($request, [
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'editorial' => 'required|string|max:255',
+            'pages' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
             'postimage' => 'required|image'
         ]);
 
         //Recoge los datos enviados por el formulario
         $title = $request->input('title');
+        $author = $request->input('author');
+        $editorial = $request->input('editorial');
+        $pages = $request->input('pages');
         $description = $request->input('description');
         $postimage = $request->file('postimage');
 
@@ -65,6 +71,9 @@ class PostController extends Controller
         $post = new post;
         $post->user_id = $user->id;
         $post->title = $title;
+        $post->author = $author;
+        $post->editorial = $editorial;
+        $post->pages = $pages;
         $post->description = $description;
 
         //Subir imagen de la publicación
@@ -164,13 +173,19 @@ class PostController extends Controller
         //Validación de los datos recibidos
         $validate = $this->validate($request, [
             'title' => 'string|max:255',
-            'description' => 'string|max:255',
+            'author' => 'required|string|max:255',
+            'editorial' => 'required|string|max:255',
+            'pages' => 'required|string|max:255',
+            'description' => 'string|max:1000',
             'postimage' => 'image'
         ]);
 
         //Recoge los valores de la publicación en edición
         $post_id = $request->input('post_id');
         $title = $request->input('title');
+        $author = $request->input('author');
+        $editorial = $request->input('editorial');
+        $pages = $request->input('pages');
         $description = $request->input('description');
         $postimage = $request->file('postimage');
 
@@ -179,6 +194,9 @@ class PostController extends Controller
 
         //Setea el objeto con los nuevos datos
         $post->title = $title;
+        $post->author = $author;
+        $post->editorial = $editorial;
+        $post->pages = $pages;
         $post->description = $description;
 
         //Recoge el nombre original de la imagen

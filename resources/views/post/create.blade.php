@@ -45,6 +45,51 @@
                             </div>
                         </div>
 
+                        <!-- Campo de Autor -->
+                        <div class="form-group row">
+                            <label for="author" class="col-md-4 col-form-label text-md-right">Autor</label>
+
+                            <div class="col-md-6">
+                                <input id="author" type="text" name="author" class="form-control"/>
+
+                                @if ($errors->has('author'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('author') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Campo de Editorial -->
+                        <div class="form-group row">
+                            <label for="editorial" class="col-md-4 col-form-label text-md-right">Editorial</label>
+
+                            <div class="col-md-6">
+                                <input id="editorial" type="text" name="editorial" class="form-control"/>
+
+                                @if ($errors->has('editorial'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('editorial') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Campo de Páginas -->
+                        <div class="form-group row">
+                            <label for="pages" class="col-md-4 col-form-label text-md-right">Número de Páginas</label>
+
+                            <div class="col-md-6">
+                                <input id="pages" type="text" name="pages" class="form-control"/>
+
+                                @if ($errors->has('pages'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('pages') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <!-- Campo de Descripción -->
                         <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">Descripción</label>
