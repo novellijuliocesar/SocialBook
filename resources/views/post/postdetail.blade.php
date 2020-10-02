@@ -27,6 +27,14 @@
                         </a>
                     </div>
 
+                    <!--Muestra Título de la publicación -->
+                    <div class="title">
+                        <hr/>
+                        <a href="{{route('post.postdetail', ['id' => $post->id])}}">
+                            {{$post->title}}
+                        </a>
+                    </div>
+
                 </div>
 
                 <!--Muestra Imagen de la publicación -->
@@ -91,7 +99,27 @@
                             <span class="countLikes">{{count($post->likes)}} Me gustas</span>    
                         </a>
                     </div>
-                @endif                
+                @endif          
+
+                <!-- Datos sobre la publicación -->
+                <div class="post-data">
+
+                    <!-- Datos del Autor -->
+                    <div class="author-data">
+                        <i class="far fa-keyboard"></i> {{$post->author}}
+                    </div>
+
+                    <!-- Datos de la Editorial -->
+                    <div class="editorial-data">
+                        <i class="far fa-newspaper"></i> {{$post->editorial}}
+                    </div>
+
+                    <!-- Número de páginas -->
+                    <div class="pages-data">
+                        <i class="far fa-file"></i> {{$post->pages}} páginas
+                    </div>
+
+                </div>
 
                 <!--Muestra Descripción de la publicación -->
                 <div class="description">

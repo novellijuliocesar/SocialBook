@@ -150,6 +150,13 @@ form .avatar{
     color: grey;
 }
 
+.post-data{
+    padding: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: gray;
+}
+
 .post-date{
     padding: 20px;
     padding-bottom: 10px;

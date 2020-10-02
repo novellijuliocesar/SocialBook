@@ -19,14 +19,6 @@
             </a>
         </div>
 
-        <!--Muestra Título de la publicación -->
-        <div class="title">
-            <hr/>
-            <a href="{{route('post.postdetail', ['id' => $post->id])}}">
-                {{$post->title}}
-            </a>
-        </div>
-
     </div>
 
 
@@ -84,35 +76,6 @@
             </div>
         @endif
     </div>
-
-    <!-- Muestra la cantidad de likes de la publicación -->
-    @if(count($post->likes) >= 1)
-    <div class="count-likes">
-        <a href="{{route('whoLikes', ['id' => $post->id])}}">
-            <span class="countLikes">{{count($post->likes)}} Me gustas</span>
-        </a>
-    </div>
-    @endif
-
-
-    <!--Muestra Descripción de la publicación -->
-    <div class="description">
-        <a href="{{route('profile', ['id' => $post->user->id])}}">
-            <span class="nickname">
-                {{$post->user->nickname}}
-            </span>
-        </a>
-        {{' ' . $post->description}}
-    </div>
-
-    <!--Muestra cantidad de comentarios -->
-    @if(count($post->comments)>=1)
-    <div class="count-comments">
-        <a href="{{route('post.postdetail', ['id' => $post->id])}}">
-            Ver los {{count($post->comments)}} comentarios
-        </a>
-    </div>
-    @endif
 
     <!-- Muestra la fecha de la publicación -->
     <div class="post-date">
