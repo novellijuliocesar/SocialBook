@@ -23,9 +23,4 @@ class like extends Model
     public function comments(){
         return $this->belongsTo("App\Comment", "comment_id");
     }
-
-    //Relación de muchos a uno
-    public function typelikes(){
-        return $this->belongsTo("App\Typelike", "typelike_id");
-    }
 }

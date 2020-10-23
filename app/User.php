@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'role', 'name', 'surname', 'nickname', 'email', 'password', 'profileimage'
+        'name', 'surname', 'nickname', 'email', 'password', 'profileimage'
     ];
 
     /**
@@ -26,11 +26,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    //Relación de muchos a muchos
-    public function addresses(){
-        return $this->belongsToMany("App\Address");
-    }
 
     //Relación de uno a muchos
     public function posts(){
@@ -58,5 +53,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
     }
-
 }

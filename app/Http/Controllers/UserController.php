@@ -104,8 +104,7 @@ class UserController extends Controller
         }
 
         //Redirecciona a la página de la vista con los resultados
-        return view('user.showUsers', ['users' => $users]);
-        
+        return view('user.showUsers', ['users' => $users]);        
     }
 
     //Recoge los seguidores de un usuario
@@ -144,6 +143,5 @@ class UserController extends Controller
             //Realiza una redirección a la página principal
             return redirect()->route('mymainpage');
         }
-    }
-    
+    }    
 }

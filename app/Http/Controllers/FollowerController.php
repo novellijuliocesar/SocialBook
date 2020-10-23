@@ -19,6 +19,7 @@ class FollowerController extends Controller
         //Recoge los datos del usuario
         $user = \Auth::user();
 
+        //Guarda el registro
         $user->followers()->sync($user_id, false);
     }
 
@@ -29,7 +30,7 @@ class FollowerController extends Controller
         //Recoge los datos del usuario
         $user = \Auth::user();
 
+        //Elimina el registro
         $user->followers()->detach($user_id);
-
     }
 }

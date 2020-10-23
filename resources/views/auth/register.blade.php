@@ -5,12 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <!-- Título del formulario -->
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}"  enctype="multipart/form-data" aria-label="{{ __('Register') }}">
                         @csrf
 
+                        <!-- Campo del nombre -->
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -25,6 +27,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo del apellido -->
                         <div class="form-group row">
                             <label for="surname" class="col-md-4 col-form-label text-md-right">Surname</label>
 
@@ -39,6 +42,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo del nombre de usuario -->
                         <div class="form-group row">
                             <label for="nickname" class="col-md-4 col-form-label text-md-right">Nickname</label>
 
@@ -53,6 +57,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo del email -->
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -67,6 +72,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo de la imagen de perfil -->
                         <div class="form-group row">
 
                             <label for="profileimage" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
@@ -83,6 +89,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo de la contraseña -->
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -97,6 +104,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo de la confirmación de la contraseña -->
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -105,6 +113,7 @@
                             </div>
                         </div>
 
+                        <!-- Campo del botón de envío del formulario -->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

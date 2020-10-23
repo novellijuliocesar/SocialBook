@@ -13,6 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+    //Controla que el acceso a los métodos del controlador solo para usuarios identificados
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,7 +26,7 @@ class HomeController extends Controller
      */
 
     
-     //Muestra las imagenes en el index
+    //Muestra las imagenes en el index
     public function index()
     {
         //Recoge todas las publicaciones ordenadas de manera descendiente por su id

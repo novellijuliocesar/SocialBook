@@ -1,68 +1,72 @@
 <?php
+//Espacio de nombre
 namespace App\Helpers;
   
 use Illuminate\Support\Facades\DB;
-  
+
+//Calcula y formatea el tiempo transcurrido de una publicación o un registro de usuario.
 class TimeFormat {
  
-    public static function Since($date) {
-        if ($date == null) {
-            return "Sin fecha";
+    public static function Since($fecha) {
+        //Comprueba si hay una fecha registrada.
+        if ($fecha == null) {
+            return "No hay fecha registrada";
         }
- 
-        $start_date = $date;
-        $since_start = $start_date->diff(new \DateTime(date("Y-m-d") . " " . date("H:i:s")));
- 
-        if ($since_start->y == 0) {
-            if ($since_start->m == 0) {
-                if ($since_start->d == 0) {
-                    if ($since_start->h == 0) {
-                        if ($since_start->i == 0) {
-                            if ($since_start->s == 0) {
-                                $result = $since_start->s . ' segundos';
+        //Recoge el valor de la fecha sobre la que hará el cálculo.
+        $fechaInicio = $fecha;
+        //Da el formato al valor del tiempo e indica un valor inicial.
+        $inicioDesde = $fechaInicio->diff(new \DateTime(date("Y-m-d") . " " . date("H:i:s")));
+        //Realiza los cálculos
+        if ($inicioDesde->y == 0) {
+            if ($inicioDesde->m == 0) {
+                if ($inicioDesde->d == 0) {
+                    if ($inicioDesde->h == 0) {
+                        if ($inicioDesde->i == 0) {
+                            if ($inicioDesde->s == 0) {
+                                $resultado = $inicioDesde->s . ' segundos';
                             } else {
-                                if ($since_start->s == 1) {
-                                    $result = $since_start->s . ' segundo';
+                                if ($inicioDesde->s == 1) {
+                                    $resultado = $inicioDesde->s . ' segundo';
                                 } else {
-                                    $result = $since_start->s . ' segundos';
+                                    $resultado = $inicioDesde->s . ' segundos';
                                 }
                             }
                         } else {
-                            if ($since_start->i == 1) {
-                                $result = $since_start->i . ' minuto';
+                            if ($inicioDesde->i == 1) {
+                                $resultado = $inicioDesde->i . ' minuto';
                             } else {
-                                $result = $since_start->i . ' minutos';
+                                $resultado = $inicioDesde->i . ' minutos';
                             }
                         }
                     } else {
-                        if ($since_start->h == 1) {
-                            $result = $since_start->h . ' hora';
+                        if ($inicioDesde->h == 1) {
+                            $resultado = $inicioDesde->h . ' hora';
                         } else {
-                            $result = $since_start->h . ' horas';
+                            $resultado = $inicioDesde->h . ' horas';
                         }
                     }
                 } else {
-                    if ($since_start->d == 1) {
-                        $result = $since_start->d . ' día';
+                    if ($inicioDesde->d == 1) {
+                        $resultado = $inicioDesde->d . ' día';
                     } else {
-                        $result = $since_start->d . ' días';
+                        $resultado = $inicioDesde->d . ' días';
                     }
                 }
             } else {
-                if ($since_start->m == 1) {
-                    $result = $since_start->m . ' mes';
+                if ($inicioDesde->m == 1) {
+                    $resultado = $inicioDesde->m . ' mes';
                 } else {
-                    $result = $since_start->m . ' meses';
+                    $resultado = $inicioDesde->m . ' meses';
                 }
             }
         } else {
-            if ($since_start->y == 1) {
-                $result = $since_start->y . ' año';
+            if ($inicioDesde->y == 1) {
+                $resultado = $inicioDesde->y . ' año';
             } else {
-                $result = $since_start->y . ' años';
+                $resultado = $inicioDesde->y . ' años';
             }
         }
- 
-        return "Hace " . $result;
+        //Devuelve el resultado
+        return "Hace " . $resultado;
     }
 }

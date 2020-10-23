@@ -52,8 +52,7 @@ class LikeController extends Controller
             return response()->json([                
                 'message' => 'Ya existe el registro del like'
             ]);
-        }
-        
+        }        
     }
 
     //Elimina un like de la Base de Datos
@@ -88,8 +87,7 @@ class LikeController extends Controller
             return response()->json([
                 'message' => 'No existe el registro del like'
             ]);
-        }
-        
+        }        
     }
 
     //Recoge todos los registros de likes realizados por el usuario
@@ -118,5 +116,4 @@ class LikeController extends Controller
             'whoLikes' => $whoLikes
         ]);
     }
-
 }

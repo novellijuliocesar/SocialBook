@@ -42,28 +42,4 @@ class CommentController extends Controller
         return redirect()->route('post.postdetail', ['id' => $post_id]);
 
     }
-
-    //Elimina un comentario de la Base de Datos
-    public function delete($id){
-
-        //Recoge el objeto de Usuario
-        $user = \Auth::user();
-
-        //Recoge el objeto de Comentario
-        $comment = Comment::find($id);
-
-        //Comprueba que el ususario identificado es el creador del comentario o de la publicación
-        if($user && ($comment->user_id == $user->id || $comment->post->user_id == $user->id)){
-            
-            //Borra el registro del comentario
-            $comment->delete();
-
-            //Realiza una redirección a la publicación
-            return redirect()->route('post.postdetail', ['id' => $comment->post_id]);
-        }else{
-
-            //Realiza una redirección a la publicación
-            return redirect()->route('post.postdetail', ['id' => $comment->post_id])->with(['message' => 'El comentario no se ha eliminado']);
-        }
-    }
 }

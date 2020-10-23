@@ -23,14 +23,4 @@ class post extends Model
     public function user(){
         return $this->belongsTo("App\User", "user_id");
     }
-
-    //Relación de muchos a uno
-    public function Categories(){
-        return $this->belongsTo("App\Category", "category_id");
-    }
-
-    //Relación de muchos a uno
-    public function states(){
-        return $this->belongsTo("App\State", "state_id");
-    }
 }

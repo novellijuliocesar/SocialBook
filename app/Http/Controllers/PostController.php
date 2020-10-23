@@ -36,8 +36,7 @@ class PostController extends Controller
             'posts' => $posts,
             'users' => $users
         ]);
-    }
-    
+    }    
     
     //Carga la vista de creación de publicación
     public function create(){
@@ -95,9 +94,7 @@ class PostController extends Controller
         $post->save();
 
         //Realiza una redirección a la página de la publicación
-        return redirect()->route('post.postdetail', ['id' => $post->id]);
-        
-
+        return redirect()->route('post.postdetail', ['id' => $post->id]);    
     }
 
     //Recupera la imagen de la publicación del disco
@@ -156,7 +153,6 @@ class PostController extends Controller
 
             //Redirige a la página principal
             return redirect()->route('mymainpage');
-
         }
     }
 
@@ -215,8 +211,6 @@ class PostController extends Controller
         $post->update();
 
         //Redirecciona a la página del detalle de la publicación actualizada
-        return redirect()->route('post.postdetail', ['id' => $post_id])->with(['message', 'Publicación actualizada correctamente']);
- 
+        return redirect()->route('post.postdetail', ['id' => $post_id]); 
     }
-
 }

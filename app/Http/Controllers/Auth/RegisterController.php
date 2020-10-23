@@ -50,13 +50,13 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
 
-     //Valida los datos recibidos por el formulario
+    //Valida los datos recibidos por el formulario
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
-            'nickname' => 'required|string|max:255',
+            'nickname' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'profileimage' => 'required|image',
@@ -70,7 +70,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
 
-     //Realiza la inserción de un registro de usuario
+    //Realiza la inserción de un registro de usuario
     protected function create(array $data)
     {
         //Recoge el nombre del archivo de la imagen
@@ -85,7 +85,6 @@ class RegisterController extends Controller
         Storage::disk('users')->put($fileName, File::get($profileimage));
 
         return User::create([
-            'role' => 'user',
             'name' => $data['name'],
             'surname' => $data['surname'],
             'nickname' => $data['nickname'],
